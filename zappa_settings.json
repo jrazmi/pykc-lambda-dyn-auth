@@ -1,0 +1,11 @@
+{
+    "dev": {
+        "app_function": "app.app",
+        "aws_region": "us-east-1",
+        "profile_name": "JoshPersonal",
+        "project_name": "pykc-lambda-dyn",
+        "runtime": "python2.7",
+        "s3_bucket": "zappa-wgoc8wxui",
+        "cors": true
+    }
+}
