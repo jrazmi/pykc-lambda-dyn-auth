@@ -68,3 +68,9 @@ Update Zappa!
 
 ### Chapter 05 - Protected Routes
 ```$(venv) git checkout ch-05 ```
+
+Review the auth required decorator
+
+Login with credentials and then use the token to GET request the auth checkpoint
+
+Deploy
