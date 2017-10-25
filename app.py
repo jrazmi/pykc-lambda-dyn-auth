@@ -79,6 +79,38 @@ def login():
 
     return jsonify({'token': payload})
 
+from functools import wraps
+
+def unauthorized(message):
+	response = jsonify({'error': 'unauthorized', 'message': message})
+	response.status_code = 401
+	return response
+
+def AuthRequired(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        authhead = request.headers.get('Authorization', None)
+        if not authhead:
+            return unauthorized('authorization required')
+        data = str(authhead).encode('ascii','ignore')
+        token = str.replace(data, 'Bearer ', '')
+        try:
+            jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            return unauthorized('authorization error')
+
+        return f(*args, **kwargs)
+    return decorated
+
+@app.route('/auth')
+@AuthRequired
+def authcheck():
+    return jsonify({"message": "wooohoo"})
+
+
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

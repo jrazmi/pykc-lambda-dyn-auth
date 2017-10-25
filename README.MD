@@ -64,3 +64,7 @@ Review the login endpoint.
 Test it locally
 
 Update Zappa!
+
+
+### Chapter 05 - Protected Routes
+```$(venv) git checkout ch-05 ```
