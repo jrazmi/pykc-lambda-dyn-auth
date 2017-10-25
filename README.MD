@@ -45,3 +45,11 @@ Make sure your email endpoint is working locally.
 
 There are a number of python packages that need to be pre-compiled in order to run on Lambda.
 Our friend Misserlou, creator of zappa, created an external [lambda-packages](https://github.com/Miserlou/lambda-packages) python repo.
+
+```$(venv) pip install -r requirements.txt ```
+
+Review the register app route in app.py
+
+Test it locally with the bash scripts in cmds.
+
+```$(venv) zappa update ```
