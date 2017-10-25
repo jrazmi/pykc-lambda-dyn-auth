@@ -45,5 +45,40 @@ def register():
 
     return jsonify({'message': 'user created'})
 
+
+import jwt
+import datetime
+#put this in an env variable
+SECRET_KEY='pykc'
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    error = {'error': 'invalid user email or password'}
+    if not data.get('email', None) or not data.get('password', False):
+        return jsonify(error)
+
+    get_user = table.get_item(Key={"email": str(data['email']).upper()})
+    user = get_user.get('Item', None)
+
+    if not user:
+        return jsonify(error)
+
+    password_hash = user.get('password_hash', None)
+    if not bcrypt.checkpw(str(data['password']), str(password_hash)):
+        return jsonify(error)
+
+    payload = jwt.encode(
+        {
+            "sub": user['email'],
+            "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1)
+        },
+        SECRET_KEY,
+        algorithm='HS256'
+    )
+
+    return jsonify({'token': payload})
+
+
 if __name__ == "__main__":
     app.run(debug=True)

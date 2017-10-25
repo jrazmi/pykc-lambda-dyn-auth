@@ -53,3 +53,14 @@ Review the register app route in app.py
 Test it locally with the bash scripts in cmds.
 
 ```$(venv) zappa update ```
+
+
+### Chapter 04 - JWTs and Password hashing.
+```$(venv) git checkout ch-04 ```
+```$(venv) pip install -r requirements.txt```
+
+Review the login endpoint.
+
+Test it locally
+
+Update Zappa!
