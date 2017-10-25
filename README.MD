@@ -30,7 +30,11 @@ Verify that your hello world app is up and running!
 ``` $ git checkout ch-02 ```
 
 Checkout [boto3](https://boto3.readthedocs.io/en/latest/) docs.
-*boto3 gets is a dependency of zappa if you are using it outside of zappa just pip install boto3*   
+*boto3 gets is a dependency of zappa if you are using it outside of zappa just pip install boto3*  
+
+Create a dynamoDB table in your AWS console.
+
+Create a new item in your table.  
 
 Make sure your email endpoint is working locally.
 ```$(venv) zappa update ```
