@@ -24,3 +24,13 @@ Follow the setup instructions.
 
 Assuming no errors zappa will give you a amazon api endpoint.
 Verify that your hello world app is up and running!
+
+
+### Chapter 02 - Boto3 and DynamoDB
+``` $ git checkout ch-02 ```
+
+Checkout [boto3](https://boto3.readthedocs.io/en/latest/) docs.
+*boto3 gets is a dependency of zappa if you are using it outside of zappa just pip install boto3*   
+
+Make sure your email endpoint is working locally.
+```$(venv) zappa update ```
