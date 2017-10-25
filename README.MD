@@ -30,7 +30,8 @@ Verify that your hello world app is up and running!
 ``` $ git checkout ch-02 ```
 
 Checkout [boto3](https://boto3.readthedocs.io/en/latest/) docs.
-*boto3 gets is a dependency of zappa if you are using it outside of zappa just pip install boto3*  
+
+*boto3 is a dependency of zappa and automatically installed if you are using it outside of zappa just $ pip install boto3 where you need it*  
 
 Create a dynamoDB table in your AWS console.
 
