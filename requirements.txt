@@ -1,8 +1,10 @@
 argcomplete==1.9.2
 base58==0.2.4
+bcrypt==3.1.4
 boto3==1.4.7
 botocore==1.7.14
 certifi==2017.7.27.1
+cffi==1.11.2
 chardet==3.0.4
 click==6.7
 docutils==0.14
@@ -11,6 +13,7 @@ Flask==0.12.2
 future==0.16.0
 futures==3.1.1
 hjson==3.0.0
+httpie==0.9.9
 idna==2.6
 itsdangerous==0.24
 Jinja2==2.9.6
@@ -19,6 +22,9 @@ kappa==0.6.0
 lambda-packages==0.16.1
 MarkupSafe==1.0
 placebo==0.8.1
+pycparser==2.18
+Pygments==2.2.0
+PyJWT==1.5.3
 python-dateutil==2.6.1
 python-slugify==1.2.4
 PyYAML==3.12

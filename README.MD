@@ -39,3 +39,9 @@ Create a new item in your table.
 
 Make sure your email endpoint is working locally.
 ```$(venv) zappa update ```
+
+### Chapter 03 - Lambda Packages and Registration
+```$ git checkout ch-03```
+
+There are a number of python packages that need to be pre-compiled in order to run on Lambda.
+Our friend Misserlou, creator of zappa, created an external [lambda-packages](https://github.com/Miserlou/lambda-packages) python repo.
