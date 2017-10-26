@@ -80,6 +80,7 @@ def login():
     return jsonify({'token': payload})
 
 from functools import wraps
+from flask import g
 
 def unauthorized(message):
 	response = jsonify({'error': 'unauthorized', 'message': message})
@@ -95,7 +96,7 @@ def AuthRequired(f):
         data = str(authhead).encode('ascii','ignore')
         token = str.replace(data, 'Bearer ', '')
         try:
-            jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
+            g.user = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
         except jwt.ExpiredSignatureError:
             return unauthorized('authorization error')
 
@@ -107,6 +108,25 @@ def AuthRequired(f):
 def authcheck():
     return jsonify({"message": "wooohoo"})
 
+
+lam = boto3.client('lambda')
+import json
+
+@app.route('/execute')
+@AuthRequired
+def execute():
+    payload = {
+        'email': g.user.get('sub', ''),
+        'timestamp': int(time.time())
+    }
+    send_user = lam.invoke(
+        FunctionName='pykc-print-user',
+        InvocationType='Event',
+        Payload=json.dumps(payload)
+    )
+    status = send_user.get('StatusCode', None)
+
+    return jsonify({'status': status, 'user': payload['email'], 'execution': 'pykc-print-user'})
 
 
 

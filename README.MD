@@ -74,3 +74,11 @@ Review the auth required decorator
 Login with credentials and then use the token to GET request the auth checkpoint
 
 Deploy
+
+### Chapter 06 - Invoking other functions
+```$(venv) git checkout ch-06```
+Note the authorizer function where we updated the token to be stored in Flask's g variable.
+
+Review the execute route.
+
+Deploy!
